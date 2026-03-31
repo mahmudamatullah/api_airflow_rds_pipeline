@@ -6,7 +6,7 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
+- [Project Overview](#project-overview)
 - [Infrastructure / Architecture](#infrastructure--architecture)
 - [Data Generation](#data-generation)
 - [Data Pipeline Flow](#data-pipeline-flow)
@@ -21,13 +21,20 @@
 
 ## Overview
 
-→ This project is a full end-to-end data pipeline that makes use of Apache Airflow to fetch book metadata from the OpenLibrary API, processes it, and loads it into an AWS RDS PostgreSQL database.
+Ever wondered which book topics are trending each year? Or how authors and subjects shift over time?
 
-→ All AWS infrastructure (VPC, subnets, RDS) is provisioned via Terraform, and Airflow is deployed locally via Docker for workflow orchestration.
+This project is an end-to-end automated data pipeline that fetches book metadata from the OpenLibrary API, processes it, and stores it in a PostgreSQL database on AWS RDS, ready for analytics or dashboards.
 
-→ This pipeline demonstrates cloud infrastructure management, ETL automation, API integration, and workflow orchestration.
+The pipeline is fully orchestrated with Apache Airflow and deployed locally using Docker, while all cloud infrastructure (VPC, subnets, RDS) is provisioned via Terraform.
 
 --- 
+
++----------------+      +----------------+      +-----------------+
+| OpenLibrary API| ---> |  Airflow DAG   | ---> | AWS RDS PostgreSQL|
++----------------+      +----------------+      +-----------------+
+        ^                                           |
+        |                                           v
+    Subject-based dynamic data                Query / Analytics
 
 ## Infrastructure / Architecture
 - AWS resources provisioned via Terraform:
