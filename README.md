@@ -3,6 +3,7 @@
 ![Terraform](https://img.shields.io/badge/Terraform-%235835CC.svg?style=flat&logo=terraform&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.10.4-blue.svg?style=flat&logo=python&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)
+![Airflow](https://img.shields.io/badge/Apache%20Airflow-%23017CEE.svg?style=flat&logo=apache-airflow&logoColor=white)
 
 ## Table of Contents
 
@@ -28,13 +29,6 @@ This project is an end-to-end automated data pipeline that fetches book metadata
 The pipeline is fully orchestrated with Apache Airflow and deployed locally using Docker, while all cloud infrastructure (VPC, subnets, RDS) is provisioned via Terraform.
 
 --- 
-
-+----------------+      +----------------+      +-----------------+
-| OpenLibrary API| ---> |  Airflow DAG   | ---> | AWS RDS PostgreSQL|
-+----------------+      +----------------+      +-----------------+
-        ^                                           |
-        |                                           v
-    Subject-based dynamic data                Query / Analytics
 
 ## Infrastructure / Architecture
 - AWS resources provisioned via Terraform:
